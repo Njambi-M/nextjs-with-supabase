@@ -75,3 +75,18 @@
     color: var(--foreground);
   }
 }
+
+.title{
+  border-style: none;
+  font-size: 20px;
+  margin: 20px 0px 20px 0px;
+}
+.btn-add{
+  text-align: left;
+  margin-bottom: 30px;
+  margin-right: 8px;
+}
+.btn-delete{
+  margin-left:5px;
+  background-color:red;
+}
