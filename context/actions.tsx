@@ -3,7 +3,7 @@ import exp from "constants";
 
 const supabase = createClient();
 
-export const createTodo = async (data: { title: string; description: string; completed: boolean }) => {
+export const createTodo = async (data: { task_name: string, progress: string, done: string, priority: number }) => {
     const { data: newTodo, error } = await supabase
     .from('TODO')
     .insert([data])
@@ -21,7 +21,7 @@ export async function readTodo() {
     return TODO;
 }
 
-export const updateTodo= async (id: string, data: { title: string; description: string; completed: boolean }) =>  {
+export const updateTodo= async (id: number, data: { task_name: string, progress: string, done: string, priority: number }) =>  {
     const { data:updatedTodo, error } = await supabase
     .from('TODO')
     .update(data)
@@ -34,7 +34,7 @@ export const updateTodo= async (id: string, data: { title: string; description: 
     
       return updatedTodo;
 }
-export const deleteTodo = async (id: string) => {
+export const deleteTodo = async (id: number) => {
     const { error } = await supabase
     .from('TODO')
     .delete()
