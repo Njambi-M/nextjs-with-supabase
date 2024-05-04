@@ -44,6 +44,9 @@ export default  function ReadTodo(){
     const handleCreateTodo = async (task_name: string, in_progress: boolean, done: boolean, priority: number) => {
         await createTodo({task_name, in_progress, done, priority});
     }
+    const handleDeleteTodo = async (id: number) => {
+        await deleteTodo(id);
+    }
 
     return (
         <> 
@@ -202,7 +205,7 @@ export default  function ReadTodo(){
                                 </DialogFooter>
                             </DialogContent>
                             </Dialog>
-                            <Button className = "btn-delete" variant="destructive">Delete</Button>
+                            <Button onClick={()=> {handleDeleteTodo(todoItem.id)}} className = "btn-delete" variant="destructive">Delete</Button>
                         </TableCell>
                     </TableRow>
                 ))}

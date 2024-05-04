@@ -42,7 +42,7 @@ export const deleteTodo = async (id: number) => {
     const { error } = await supabase
     .from('TODO')
     .delete()
-    .eq('id', 'id')   
+    .eq('id', id)   
 
     if (error) {
         throw new Error(error.message);
