@@ -4,11 +4,12 @@ import { createClient } from "@/utils/supabase/server";
 import ConnectSupabaseSteps from "@/components/tutorial/ConnectSupabaseSteps";
 import SignUpUserSteps from "@/components/tutorial/SignUpUserSteps";
 import Header from "@/components/Header";
+import ReadTodo from "../components/ReadTodo";
 
 export default async function Index() {
  
   return (
-    <div></div>
+    <ReadTodo/>
   );
 }
 
