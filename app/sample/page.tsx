@@ -41,8 +41,8 @@ export default  function ReadTodo(){
     const [done, setDone] = useState<boolean>(false);
     const [priority, setPriority] = useState<number>(0);
 
-    const handleCreateTodo = async (task_name: string, progress: boolean, done: boolean, priority: number) => {
-        await createTodo({task_name, progress, done, priority});
+    const handleCreateTodo = async (task_name: string, in_progress: boolean, done: boolean, priority: number) => {
+        await createTodo({task_name, in_progress, done, priority});
     }
 
     return (
