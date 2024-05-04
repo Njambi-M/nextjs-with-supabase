@@ -90,7 +90,14 @@
   margin-left:5px;
   background-color:red;
 }
-.dialog{
-  border-style: none;
 
+.dialog,
+.dialog .grid,
+.dialog .grid-cols-4,
+.dialog .gap-4,
+.dialog .items-center,
+.dialog .text-right,
+.dialog .col-span-4,
+.dialog-title {
+    border: none !important;
 }

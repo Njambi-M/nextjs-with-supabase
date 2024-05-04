@@ -35,63 +35,60 @@ export default async function ReadTodo(){
         <> 
         <h1 className="title">TODO List</h1>
         <Dialog>
-      <DialogTrigger asChild>
-      <Button className = "btn-add" variant="secondary" >ADD</Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] dialog">
-        <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
-          </DialogDescription>
-        </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="task_name" className="text-right">
-              Task Name
-            </Label>
-            <Input
-              id="task_name"
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="progress" className="text-right">
-              In Progress
-            </Label>
-            <Input
-              id="progress"
-              defaultValue="TRUE"
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="done" className="text-right">
-              Done
-            </Label>
-            <Input
-              id="done"
-              defaultValue="FALSE"
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="priority" className="text-right">
-              Priority
-            </Label>
-            <Input
-            type="number"
-            id="progress"
-            defaultValue='0'
-            className="col-span-3"
-            />
-          </div>
-        </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+        <DialogTrigger asChild>
+        <Button className = "btn-add" variant="secondary" >ADD</Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[425px] dialog">
+            <DialogHeader className="dialog-title">
+            <DialogTitle>Add TODO</DialogTitle>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+            <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="task_name" className="text-right">
+                Task Name
+                </Label>
+                <Input
+                id="task_name"
+                className="col-span-3"
+                />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="progress" className="text-right">
+                In Progress
+                </Label>
+                <Input
+                id="progress"
+                defaultValue="TRUE"
+                className="col-span-3"
+                />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="done" className="text-right">
+                Done
+                </Label>
+                <Input
+                id="done"
+                defaultValue="FALSE"
+                className="col-span-3"
+                />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="priority" className="text-right">
+                Priority
+                </Label>
+                <Input
+                type="number"
+                id="progress"
+                defaultValue='0'
+                className="col-span-3"
+                />
+            </div>
+            </div>
+            <DialogFooter>
+            <Button type="submit" variant="secondary">Save changes</Button>
+            </DialogFooter>
+        </DialogContent>
+        </Dialog>
 
         <Table>
             <TableHeader>
@@ -111,8 +108,62 @@ export default async function ReadTodo(){
                             <TableCell key={index}>{value as ReactNode}</TableCell>
                         ))}
                         <TableCell>
+                        <Dialog>
+                            <DialogTrigger asChild>
                             <Button className = "btn-update"variant="ghost">Update</Button>
-                            <Button className = "btn-delete"variant="destructive">Delete</Button>
+                            </DialogTrigger>
+                            <DialogContent className="sm:max-w-[425px] dialog">
+                                <DialogHeader className="dialog-title">
+                                <DialogTitle>Edit TODO</DialogTitle>
+                                </DialogHeader>
+                                <div className="grid gap-4 py-4">
+                                <div className="grid grid-cols-4 items-center gap-4">
+                                    <Label htmlFor="task_name" className="text-right">
+                                    Task Name
+                                    </Label>
+                                    <Input
+                                    id="task_name"
+                                    className="col-span-3"
+                                    />
+                                </div>
+                                <div className="grid grid-cols-4 items-center gap-4">
+                                    <Label htmlFor="progress" className="text-right">
+                                    In Progress
+                                    </Label>
+                                    <Input
+                                    id="progress"
+                                    defaultValue="TRUE"
+                                    className="col-span-3"
+                                    />
+                                </div>
+                                <div className="grid grid-cols-4 items-center gap-4">
+                                    <Label htmlFor="done" className="text-right">
+                                    Done
+                                    </Label>
+                                    <Input
+                                    id="done"
+                                    defaultValue="FALSE"
+                                    className="col-span-3"
+                                    />
+                                </div>
+                                <div className="grid grid-cols-4 items-center gap-4">
+                                    <Label htmlFor="priority" className="text-right">
+                                    Priority
+                                    </Label>
+                                    <Input
+                                    type="number"
+                                    id="progress"
+                                    defaultValue='0'
+                                    className="col-span-3"
+                                    />
+                                </div>
+                                </div>
+                                <DialogFooter>
+                                <Button type="submit">Save changes</Button>
+                                </DialogFooter>
+                            </DialogContent>
+                            </Dialog>
+                            <Button className = "btn-delete" variant="destructive">Delete</Button>
                         </TableCell>
                     </TableRow>
                 ))}
