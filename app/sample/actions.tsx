@@ -29,7 +29,7 @@ export const updateTodo= async (id: number, data: { task_name: string, in_progre
     const { data:updatedTodo, error } = await supabase
     .from('TODO')
     .update(data)
-    .eq('id', 'id')
+    .eq('id', id)
     .select()
 
     if (error) {

@@ -47,6 +47,9 @@ export default  function ReadTodo(){
     const handleDeleteTodo = async (id: number) => {
         await deleteTodo(id);
     }
+    const handleUpdateTodo = async (id: number, task_name: string, in_progress: boolean, done: boolean, priority: number) => {
+        await updateTodo(id, {task_name, in_progress, done, priority});
+    }
 
     return (
         <> 
@@ -146,13 +149,15 @@ export default  function ReadTodo(){
                         <TableCell>
                         <Dialog>
                             <DialogTrigger asChild>
-                            <Button className = "btn-update"variant="ghost">Update</Button>
+                            <Button className = "btn-update"variant="ghost" onClick={()=>{setTaskName(todoItem.task_name),setPriority(todoItem.priority),setProgress(todoItem.progress), setDone(todoItem.done),setPriority(todoItem.priority)}}>Update</Button>
                             </DialogTrigger>
                             <DialogContent className="sm:max-w-[425px] dialog">
                                 <DialogHeader className="dialog-title">
                                 <DialogTitle>Edit TODO</DialogTitle>
                                 </DialogHeader>
+
                                 <div className="grid gap-4 py-4">
+                                    <form onSubmit = {(e) => {e.preventDefault();handleUpdateTodo(todoItem.id, task_name, progress, done, priority)}}>
                                 <div className="grid grid-cols-4 items-center gap-4">
                                     <Label htmlFor="task_name" className="text-right">
                                     Task Name
@@ -160,6 +165,8 @@ export default  function ReadTodo(){
                                     <Input
                                     id="task_name"
                                     className="col-span-3"
+                                    value={task_name}
+                                    onChange={(e)=>setTaskName(e.target.value)}
                                     />
                                 </div>
                                 <div className="grid grid-cols-4 items-center gap-4">
@@ -197,12 +204,16 @@ export default  function ReadTodo(){
                                     id="progress"
                                     defaultValue='0'
                                     className="col-span-3"
+                                    value={priority}
+                                    onChange={(e)=>setPriority(parseInt(e.target.value))}
                                     />
-                                </div>
                                 </div>
                                 <DialogFooter>
                                 <Button type="submit">Save changes</Button>
                                 </DialogFooter>
+                                </form>
+                                </div>
+                                
                             </DialogContent>
                             </Dialog>
                             <Button onClick={()=> {handleDeleteTodo(todoItem.id)}} className = "btn-delete" variant="destructive">Delete</Button>
