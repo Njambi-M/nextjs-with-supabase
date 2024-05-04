@@ -1,4 +1,3 @@
-// "use client";
 // import {
 //     Table,
 //     TableBody,
@@ -21,7 +20,7 @@
 
 // import { ReactNode, useState } from "react";
 // import { Button } from "@/components/ui/button";
-// import { readTodo, createTodo, updateTodo, deleteTodo} from "../context/actions";
+// import { readTodo, createTodo, updateTodo, deleteTodo} from "../../context/actions";
 
 
 // export default async function ReadTodo(){
@@ -33,7 +32,7 @@
 //     const [priority, setPriority] = useState<number>(0);
 
 //     const handleCreateTodo = async (task_name: string, progress: string, done: string, priority: number) => {
-//         await createTodo({task_name, progress, done, priority});
+//         // await createTodo({task_name, progress, done, priority});
 //     }
 
 //     return (
