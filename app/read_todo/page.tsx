@@ -13,15 +13,23 @@ import {
 import { createClient } from "@/utils/supabase/server";
 import { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from 'next/router';
+
 
 export default async function read_todo(){
     const supabase = createClient();
     let { data: TODO } = await supabase.from('TODO').select('*')
     // return <div>{JSON.stringify(TODO)}</div>
+
+    const router = useRouter();
+
+    const handleAddTodo = () => {
+        router.push('/create_todo');
+    };
     return (
         <> 
         <h1 className="title">TODO List</h1>
-        <Button className = "btn-add"variant="secondary">ADD</Button>
+        <Button className = "btn-add"variant="secondary" onClick={handleAddTodo}>ADD</Button>
 
         <Table>
             <TableHeader>
