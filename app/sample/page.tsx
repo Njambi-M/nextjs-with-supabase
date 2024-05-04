@@ -63,7 +63,7 @@ export default  function ReadTodo(){
             <DialogTitle>Add TODO</DialogTitle>
             </DialogHeader>
             <div className="grid gap-4 py-4">
-            <form onSubmit = {(e) => {e.preventDefault();handleCreateTodo(task_name, progress, done, priority)}}>
+            <form className="grid gap-4 py-4" onSubmit = {(e) => {e.preventDefault();handleCreateTodo(task_name, progress, done, priority)}}>
             <div className="grid grid-cols-4 items-center gap-4">
                 <Label htmlFor="task_name" className="text-right">
                 Task Name
@@ -157,7 +157,7 @@ export default  function ReadTodo(){
                                 </DialogHeader>
 
                                 <div className="grid gap-4 py-4">
-                                    <form onSubmit = {(e) => {e.preventDefault();handleUpdateTodo(todoItem.id, task_name, progress, done, priority)}}>
+                                    <form className="grid gap-4 py-4" onSubmit = {(e) => {e.preventDefault();handleUpdateTodo(todoItem.id, task_name, progress, done, priority)}}>
                                 <div className="grid grid-cols-4 items-center gap-4">
                                     <Label htmlFor="task_name" className="text-right">
                                     Task Name
